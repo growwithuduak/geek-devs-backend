@@ -1,18 +1,20 @@
 function takeHomeSalary(employeeType, salesPerMonth){
+    //set global variables
     let salary 
     let commission
     let totalSalary
-    // console.log(employeeType)
+    
+
     switch (employeeType) {
         case "SALARIED":
-            salary = 150000;
-            commission = 0;
+            salary = 150000; //Based salary
+            commission = 0; // since based employees have no commissiomn
             totalSalary = salary + commission
             return totalSalary
             break;
 
         case "COMMISSIONED":
-            salary = 80000;
+            salary = 80000; //Based salary
              commission = (8.5 * salesPerMonth)/100
              totalSalary = salary + commission
              return totalSalary;
@@ -26,7 +28,7 @@ function takeHomeSalary(employeeType, salesPerMonth){
             break;
 
         default:
-            return `employeeType values is limited to 'SALARIED', 'COMMISSIONED', 'CONTRACT'`
+            return `employeeType values is limited to 'SALARIED', 'COMMISSIONED', 'CONTRACT'` 
             break;
     }
 }
