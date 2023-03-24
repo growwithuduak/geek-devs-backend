@@ -1,6 +1,17 @@
 const prompt = require("prompt-sync")();
 
 
+const COMPANY_INFO = {
+    EMPLOYEE_TYPE: ["SALARIED", "COMMISSIONED", "CONTRACT"],
+    BASE_SALARY: [150000, 80000, null],
+    COMMISSION_RATE: [null, 0.085, 0.40],
+};
+
+const {EMPLOYEE_TYPE, BASE_SALARY, COMMISSION_RATE} = COMPANY_INFO;
+
+
+
+
 class salaryWageCalculator {
     
     constructor(_employeeType, _salesPerMonth) {
@@ -8,28 +19,44 @@ class salaryWageCalculator {
         this._salesPerMonth = _salesPerMonth;
     };
 
-
     salariedEmployee = () => {
-        if (this._employeeType === 'SALARIED') {
-            const baseSalary = 150000;
-            let calculatedSalary = baseSalary;
-            console.log(`${calculatedSalary} per month`);
+        try {
+            if (!EMPLOYEE_TYPE.includes(this._employeeType)) throw new Error("Wrong input, expected value is 'SALARIED'");
+            if (this._employeeType === EMPLOYEE_TYPE[0]) {
+                let calculatedSalary = BASE_SALARY[0];
+                return `${calculatedSalary} per month`;
+            }
+        } catch(e) {
+            console.error(e);
         }
-    };
+        
+    };     
 
     salariedCommissioned = () => {
-        if (this._employeeType === 'COMMISSIONED') {
-            const baseSalary = 80000;
-            let calculatedSalary = baseSalary + (this._salesPerMonth * 0.085);
-            console.log(`${calculatedSalary} per month`);
-        };
+        try {
+            if (!EMPLOYEE_TYPE.includes(this._employeeType)) throw new Error("Wrong input, expected value is 'COMMISSIONED'");
+            if (this._employeeType === EMPLOYEE_TYPE[1]) {
+                let calculatedSalary = BASE_SALARY[1] + (this._salesPerMonth * COMMISSION_RATE[1]);
+                return `${calculatedSalary} per month`;
+            }
+
+        } catch(e) {
+            console.error(e);
+        }
+        
     };
 
     salariedContract = () => {
-        if (this._employeeType === 'CONTRACT') {
-            let calculatedSalary = this._salesPerMonth * 0.40;
-            console.log(`${calculatedSalary} per month`);
-        };
+        try {
+            if (!EMPLOYEE_TYPE.includes(this._employeeType)) throw new Error("Wrong input, expected value is 'CONTRACT'");
+            if (this._employeeType === EMPLOYEE_TYPE[2]) {
+                let calculatedSalary = this._salesPerMonth * COMMISSION_RATE[2];
+                return `${calculatedSalary} per month`;
+            }
+        } catch(e) {
+            console.error(e);
+        }
+        
     };
 
 }
@@ -37,10 +64,22 @@ class salaryWageCalculator {
 
 
 
-// Usage
-let userInput = prompt("Enter employee ").toUpperCase();
-let personnel = new salaryWageCalculator(userInput, 1000);
+// USAGE
 
-personnel.salariedEmployee();
-personnel.salariedCommissioned();
-personnel.salariedContract();
+// Test case1: salaried employee
+let userInput1 = prompt("Enter appropriate employee type: ").toUpperCase();
+
+let personnel1 = new salaryWageCalculator(userInput1, 1000);
+console.log(personnel1.salariedEmployee());
+
+// Test case2: commissioned employee
+let userInput2 = prompt("Enter appropriate employee type: ").toUpperCase();
+
+let personnel2 = new salaryWageCalculator(userInput2, 1000);
+console.log(personnel2.salariedCommissioned());
+
+// Test case3: contract employee
+let userInput3 = prompt("Enter appropriate employee type: ").toUpperCase();
+
+let personnel3 = new salaryWageCalculator(userInput3, 1000);
+console.log(personnel3.salariedContract());
