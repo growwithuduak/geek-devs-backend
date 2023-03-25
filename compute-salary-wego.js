@@ -13,8 +13,8 @@ const computeSalary = (employeeType, salesPerMonth) => {
     if (!salesPerMonth) {
       throw new Error("sales-per-month must be provided");
     }
-    if (isNaN(salesPerMonth) || salesPerMonth <= 0) {
-      throw new Error("sales-per-month must be a positive number");
+    if (isNaN(salesPerMonth) || salesPerMonth < 0) {
+      throw new Error("sales-per-month must be a number");
     }
   };
 
