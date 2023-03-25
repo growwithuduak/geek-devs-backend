@@ -11,7 +11,7 @@ function calculateEmployeeSalary(employeeType, salesPerMonth) {
     } else if (employeeType === 'CONTRACT') {
       monthlySalary = contractPay;
     } else {
-      return('Please enter a valid employee type');
+      return('Please enter a valid employee type / the amount generated this month');
     }
     return(monthlySalary);
   };
