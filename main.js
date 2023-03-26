@@ -24,7 +24,7 @@ class salaryWageCalculator {
             if (!EMPLOYEE_TYPE.includes(this._employeeType)) throw new Error("Wrong input, expected value is 'SALARIED'");
             if (this._employeeType === EMPLOYEE_TYPE[0]) {
                 let calculatedSalary = BASE_SALARY[0];
-                return `${calculatedSalary} per month`;
+                return calculatedSalary;
             }
         } catch(e) {
             console.error(e);
@@ -35,9 +35,9 @@ class salaryWageCalculator {
     salariedCommissioned = () => {
         try {
             if (!EMPLOYEE_TYPE.includes(this._employeeType)) throw new Error("Wrong input, expected value is 'COMMISSIONED'");
-            if (this._employeeType === EMPLOYEE_TYPE[1]) {
+            if ((this._employeeType === EMPLOYEE_TYPE[1]) && (this._salesPerMonth >= 0)) {
                 let calculatedSalary = BASE_SALARY[1] + (this._salesPerMonth * COMMISSION_RATE[1]);
-                return `${calculatedSalary} per month`;
+                return calculatedSalary;
             }
 
         } catch(e) {
@@ -49,9 +49,9 @@ class salaryWageCalculator {
     salariedContract = () => {
         try {
             if (!EMPLOYEE_TYPE.includes(this._employeeType)) throw new Error("Wrong input, expected value is 'CONTRACT'");
-            if (this._employeeType === EMPLOYEE_TYPE[2]) {
+            if ((this._employeeType === EMPLOYEE_TYPE[2]) && (this._salesPerMonth >= 0)) {
                 let calculatedSalary = this._salesPerMonth * COMMISSION_RATE[2];
-                return `${calculatedSalary} per month`;
+                return calculatedSalary;
             }
         } catch(e) {
             console.error(e);
