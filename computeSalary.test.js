@@ -40,3 +40,4 @@ test("throw an error for invalid sales-per-month", () => {
     ErrorMsg.INVALID_SALES_PER_MONTH
   );
 });
+
