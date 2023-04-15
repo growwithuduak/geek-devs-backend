@@ -6,6 +6,14 @@ const EmployeeType = {
 }
 
 
+const EmployeeSalary = {
+    salariedBaseSalary: 150000,
+    commissionedBaseSalary: 80000,
+    commissionedRate: 0.085,
+    contractRate: 0.4
+}
+
+
 // user' input validation 
 const validateEmployeeType = (employeeType) => {
     if (typeof (employeeType) !== 'string') {
@@ -30,26 +38,26 @@ const validateSalesPerMonth = (salesPerMonth) => {
 
 
 const SALARIED_EMPLOYEE = () => {
-    let baseSalary = 150000;
+    let baseSalary = EmployeeSalary.salariedBaseSalary;
     return baseSalary
 }
 
 const COMMISSIONED_EMPLOYEE = (salesPerMonth) => {
     validateSalesPerMonth(salesPerMonth)
-    let baseSalary = 80000;
-    let commission = (0.085 * salesPerMonth);
+    let baseSalary = EmployeeSalary.commissionedBaseSalary;
+    let commission = (EmployeeSalary.commissionedRate * salesPerMonth);
     return baseSalary + commission;
 }
 
 const CONTRACT_EMPLOYEE = (salesPerMonth) => {
     validateSalesPerMonth(salesPerMonth)
-    let commission = (0.4 * salesPerMonth);
+    let commission = (EmployeeSalary.contractRate * salesPerMonth);
     return commission;
 }
 
 
 //employee' salary computation logic
-const employeeSalary = (employeeType, salesPerMonth) => {
+const computeEmployeeSalary = (employeeType, salesPerMonth) => {
 
     validateEmployeeType(employeeType)
 
@@ -71,10 +79,20 @@ const employeeSalary = (employeeType, salesPerMonth) => {
 
 
 
-try {
-    let checkSalary = employeeSalary('54', null)
-    console.log(checkSalary)
-} catch (error) {
-    console.log(error.message)
-}
+// try {
+//     let checkSalary = employeeSalary('54', null)
+//     console.log(checkSalary)
+// } catch (error) {
+//     console.log(error.message)
+// }
 
+module.exports = {
+    EmployeeType,
+    EmployeeSalary,
+    SALARIED_EMPLOYEE,
+    CONTRACT_EMPLOYEE,
+    COMMISSIONED_EMPLOYEE,
+    computeEmployeeSalary,
+    validateEmployeeType,
+    validateSalesPerMonth
+}
