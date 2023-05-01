@@ -1,0 +1,22 @@
+{
+  "name": "geek-devs-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wego.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/growwithuduak/geek-devs-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/growwithuduak/geek-devs-backend/issues"
+  },
+  "homepage": "https://github.com/growwithuduak/geek-devs-backend#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
