@@ -7,7 +7,7 @@ const {
   computeComissionedEmployeeSalary,
   computeContractEmployeeSalary,
   computeSalary,
-} = require("./computeSalary");
+} = require("../computeSalary");
 
 
 test("returns the correct salary for a salaried employee", () => {
