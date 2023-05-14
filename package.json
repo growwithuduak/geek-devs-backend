@@ -1,8 +1,29 @@
 {
-  "devDependencies": {
-    "jest": "^29.5.0"
-  },
+  "name": "user-microservice",
+  "version": "1.0.0",
+  "description": "this is a microservice that create, get, update and delete a user",
+  "main": "server.js",
   "scripts": {
-    "test": "jest"
+    "start": "nodemon ./user-microservice/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/growwithuduak/geek-devs-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/growwithuduak/geek-devs-backend/issues"
+  },
+  "homepage": "https://github.com/growwithuduak/geek-devs-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.1",
+    "request": "^2.88.2"
   }
 }
