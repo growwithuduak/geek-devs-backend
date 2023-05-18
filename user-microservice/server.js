@@ -29,8 +29,3 @@ const startServer = async () => {
 };
 startServer();
 
-// app.listen(port, () => {
-//   console.log(
-//     `Yayyy my user-microservice is listening at http://localhost:${port}... let's go`
-//   );
-// });
