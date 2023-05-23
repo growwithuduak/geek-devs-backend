@@ -1,6 +1,7 @@
 const express = require('express')
 const amqp = require('amqplib')
-require('dotenv').config()
+require(
+    'dotenv').config()
 
 const errorHandler = require('./middleware/errorHandler')
 const db = require('./model/config')
